@@ -1,7 +1,7 @@
 import { stringify } from 'qs';
 import request from '../utils/request';
 import func from '../utils/Func';
-let baseApi='apc'
+let baseApi='/apc'
 
 export async function EditRule() {
   return request(baseApi+'/rule/test/ruleSet/ruleSetNewPara/nodes');

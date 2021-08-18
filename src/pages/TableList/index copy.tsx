@@ -79,22 +79,6 @@ const handleRemove = async (selectedRows: API.RuleListItem[]) => {
   }
 };
 
- // 数据请求
- const fetchCreditList = async (params) => {
-  const pages = {
-    size: params.pageSize,
-    current: params.current,
-  };
-  const res = await rule(pages);
-  const {data} = res;
-console.log('hhah',params,res,data)
-  return {
-    success: true,
-    data: data.data,
-    total: data.totalCount,
-    pageSize: data.pageProperty.pageSize,
-  };
-};
 const TableList: React.FC = () => {
   /**
    * @en-US Pop-up window of new window
@@ -142,115 +126,115 @@ const TableList: React.FC = () => {
         );
       },
     },
-    // {
-    //   title: <FormattedMessage id="pages.searchTable.titleDesc" defaultMessage="Description" />,
-    //   dataIndex: 'desc',
-    //   valueType: 'textarea',
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.titleCallNo"
-    //       defaultMessage="Number of service calls"
-    //     />
-    //   ),
-    //   dataIndex: 'callNo',
-    //   sorter: true,
-    //   hideInForm: true,
-    //   renderText: (val: string) =>
-    //     `${val}${intl.formatMessage({
-    //       id: 'pages.searchTable.tenThousand',
-    //       defaultMessage: ' 万 ',
-    //     })}`,
-    // },
-    // {
-    //   title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
-    //   dataIndex: 'status',
-    //   hideInForm: true,
-    //   valueEnum: {
-    //     0: {
-    //       text: (
-    //         <FormattedMessage
-    //           id="pages.searchTable.nameStatus.default"
-    //           defaultMessage="Shut down"
-    //         />
-    //       ),
-    //       status: 'Default',
-    //     },
-    //     1: {
-    //       text: (
-    //         <FormattedMessage id="pages.searchTable.nameStatus.running" defaultMessage="Running" />
-    //       ),
-    //       status: 'Processing',
-    //     },
-    //     2: {
-    //       text: (
-    //         <FormattedMessage id="pages.searchTable.nameStatus.online" defaultMessage="Online" />
-    //       ),
-    //       status: 'Success',
-    //     },
-    //     3: {
-    //       text: (
-    //         <FormattedMessage
-    //           id="pages.searchTable.nameStatus.abnormal"
-    //           defaultMessage="Abnormal"
-    //         />
-    //       ),
-    //       status: 'Error',
-    //     },
-    //   },
-    // },
-    // {
-    //   title: (
-    //     <FormattedMessage
-    //       id="pages.searchTable.titleUpdatedAt"
-    //       defaultMessage="Last scheduled time"
-    //     />
-    //   ),
-    //   sorter: true,
-    //   dataIndex: 'updatedAt',
-    //   valueType: 'dateTime',
-    //   renderFormItem: (item, { defaultRender, ...rest }, form) => {
-    //     const status = form.getFieldValue('status');
-    //     if (`${status}` === '0') {
-    //       return false;
-    //     }
-    //     if (`${status}` === '3') {
-    //       return (
-    //         <Input
-    //           {...rest}
-    //           placeholder={intl.formatMessage({
-    //             id: 'pages.searchTable.exception',
-    //             defaultMessage: 'Please enter the reason for the exception!',
-    //           })}
-    //         />
-    //       );
-    //     }
-    //     return defaultRender(item);
-    //   },
-    // },
-    // {
-    //   title: <FormattedMessage id="pages.searchTable.titleOption" defaultMessage="Operating" />,
-    //   dataIndex: 'option',
-    //   valueType: 'option',
-    //   render: (_, record) => [
-    //     <a
-    //       key="config"
-    //       onClick={() => {
-    //         handleUpdateModalVisible(true);
-    //         setCurrentRow(record);
-    //       }}
-    //     >
-    //       <FormattedMessage id="pages.searchTable.config" defaultMessage="Configuration" />
-    //     </a>,
-    //     <a key="subscribeAlert" href="https://procomponents.ant.design/">
-    //       <FormattedMessage
-    //         id="pages.searchTable.subscribeAlert"
-    //         defaultMessage="Subscribe to alerts"
-    //       />
-    //     </a>,
-    //   ],
-    // },
+    {
+      title: <FormattedMessage id="pages.searchTable.titleDesc" defaultMessage="Description" />,
+      dataIndex: 'desc',
+      valueType: 'textarea',
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.titleCallNo"
+          defaultMessage="Number of service calls"
+        />
+      ),
+      dataIndex: 'callNo',
+      sorter: true,
+      hideInForm: true,
+      renderText: (val: string) =>
+        `${val}${intl.formatMessage({
+          id: 'pages.searchTable.tenThousand',
+          defaultMessage: ' 万 ',
+        })}`,
+    },
+    {
+      title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
+      dataIndex: 'status',
+      hideInForm: true,
+      valueEnum: {
+        0: {
+          text: (
+            <FormattedMessage
+              id="pages.searchTable.nameStatus.default"
+              defaultMessage="Shut down"
+            />
+          ),
+          status: 'Default',
+        },
+        1: {
+          text: (
+            <FormattedMessage id="pages.searchTable.nameStatus.running" defaultMessage="Running" />
+          ),
+          status: 'Processing',
+        },
+        2: {
+          text: (
+            <FormattedMessage id="pages.searchTable.nameStatus.online" defaultMessage="Online" />
+          ),
+          status: 'Success',
+        },
+        3: {
+          text: (
+            <FormattedMessage
+              id="pages.searchTable.nameStatus.abnormal"
+              defaultMessage="Abnormal"
+            />
+          ),
+          status: 'Error',
+        },
+      },
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchTable.titleUpdatedAt"
+          defaultMessage="Last scheduled time"
+        />
+      ),
+      sorter: true,
+      dataIndex: 'updatedAt',
+      valueType: 'dateTime',
+      renderFormItem: (item, { defaultRender, ...rest }, form) => {
+        const status = form.getFieldValue('status');
+        if (`${status}` === '0') {
+          return false;
+        }
+        if (`${status}` === '3') {
+          return (
+            <Input
+              {...rest}
+              placeholder={intl.formatMessage({
+                id: 'pages.searchTable.exception',
+                defaultMessage: 'Please enter the reason for the exception!',
+              })}
+            />
+          );
+        }
+        return defaultRender(item);
+      },
+    },
+    {
+      title: <FormattedMessage id="pages.searchTable.titleOption" defaultMessage="Operating" />,
+      dataIndex: 'option',
+      valueType: 'option',
+      render: (_, record) => [
+        <a
+          key="config"
+          onClick={() => {
+            handleUpdateModalVisible(true);
+            setCurrentRow(record);
+          }}
+        >
+          <FormattedMessage id="pages.searchTable.config" defaultMessage="Configuration" />
+        </a>,
+        <a key="subscribeAlert" href="https://procomponents.ant.design/">
+          <FormattedMessage
+            id="pages.searchTable.subscribeAlert"
+            defaultMessage="Subscribe to alerts"
+          />
+        </a>,
+      ],
+    },
   ];
 
   return (
@@ -261,7 +245,7 @@ const TableList: React.FC = () => {
           defaultMessage: 'Enquiry form',
         })}
         actionRef={actionRef}
-        rowKey="no"
+        rowKey="key"
         search={{
           labelWidth: 120,
         }}
@@ -276,8 +260,7 @@ const TableList: React.FC = () => {
             <PlusOutlined /> <FormattedMessage id="pages.searchTable.new" defaultMessage="New" />
           </Button>,
         ]}
-        // request={rule}
-        request={(params) => fetchCreditList(params)}
+        request={rule}
         columns={columns}
         rowSelection={{
           onChange: (_, selectedRows) => {

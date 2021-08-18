@@ -1,8 +1,8 @@
 // @ts-ignore
 /* eslint-disable */
-// import { request } from 'umi';
+import { request } from 'umi';
 
-import request from '@/utils/request';
+// import request from '@/utils/request';
 
 /** 获取当前的用户 GET /api/currentUser */
 export async function currentUser(options?: { [key: string]: any }) {
@@ -75,6 +75,9 @@ export async function rule(
 ) {
   return request<API.RuleList>('/apc/model/parameters', {
     method: 'GET',
+    headers: {
+      'Sino-Auth': 'bearer eyJ0eXAiOiJKc29uV2ViVG9rZW4iLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJpc3N1c2VyIiwiYXVkIjoiYXVkaWVuY2UiLCJ0ZW5hbnRfaWQiOiIwMDAwMDAiLCJyb2xlX25hbWUiOiJhZG1pbmlzdHJhdG9yIiwicG9zdF9pZCI6IjEzMTA4ODgwMTc3NjU5NTc2NDgiLCJ1c2VyX2lkIjoiMTEyMzU5ODgyMTczODY3NTIwMSIsInJvbGVfaWQiOiIxMTIzNTk4ODE2NzM4Njc1MjAxIiwidXNlcl9uYW1lIjoiYWRtaW4iLCJuaWNrX25hbWUiOiLnrqHnkIblkZgiLCJ0b2tlbl90eXBlIjoiYWNjZXNzX3Rva2VuIiwiZGVwdF9pZCI6Ijk5OTkiLCJhY2NvdW50IjoiYWRtaW4iLCJjbGllbnRfaWQiOiJzd29yZCIsImV4cCI6MTYyOTIyMDM3NSwibmJmIjoxNjI5MTg0Mzc1fQ.Vm-5KAQymFuxo_qsC1cRw2Mi3lD81w-v7_G21DrxX-A',
+    },
     params: {
       ...params,
     },

@@ -1,7 +1,7 @@
 import { stringify } from 'qs';
 import func from '../utils/Func';
 import request from '../utils/request';
-let baseApi='apc'
+let baseApi='/apc'
 // 查询所有常量
 export async function getConstants(param) {
   return request(baseApi+`/model/constants?${stringify(param)}`);

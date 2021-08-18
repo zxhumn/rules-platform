@@ -1,0 +1,32 @@
+.modalTitle {
+  padding-left: 8px;
+  border-left: 1px solid #000000;
+  font-size: 16px;
+}
+.packAction a {
+  margin: 0 10px;
+}
+.treeBorder {
+  border: 1px solid #ccc;
+  margin-top: 8px;
+  height: 320px;
+  overflow-y: auto;
+}
+.treeBorder .treeHeader {
+  height: 32px;
+  padding: 5px 15px;
+  border-bottom: 1px solid #ccc;
+}
+.treeBorder .treeHeader > span {
+  float: right;
+}
+.treeBorder .treeBorder :global .ant-tree {
+  padding: 5px;
+}
+.treeBorder :global span.ant-tree-node-content-wrapper.ant-tree-node-content-wrapper-open .ant-tree-title,
+.treeBorder :global span.ant-tree-node-content-wrapper.ant-tree-node-content-wrapper-close > span.ant-tree-title {
+  color: red;
+}
+.treeBorder :global span.ant-tree-node-content-wrapper.ant-tree-node-content-wrapper-normal .ant-tree-title {
+  color: #787878;
+}

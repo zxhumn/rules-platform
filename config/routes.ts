@@ -18,36 +18,40 @@
       },
     ],
   },
+  // {
+  //   name: 'list.table-list',
+  //   icon: 'table',
+  //   path: '/list',
+  //   component: './TableList',
+  // },
   {
-    path: '/welcome',
-    name: 'welcome',
+    name: '常量变量',
     icon: 'smile',
-    component: './Welcome',
+    path: '/rule/code',
+    component: './rule/code/index',
   },
-  {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    component: './Admin',
-    routes: [
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        icon: 'smile',
-        component: './Welcome',
-      },
-      {
-        component: './404',
-      },
-    ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
+  // {
+  //   name: '知识包管理',
+  //   icon: 'smile',
+  //   path: '/rule/packs',
+  //   component: './rule/packs/index',
+  // },
+  // {
+  //   name: '规则集',
+  //   icon: 'smile',
+  //   path: 'ruleSet',
+  //   routes: [
+  //     {
+  //       path: '/ruleSet/index',
+  //       component: './ruleSet/rule/index',
+  //     },
+  //     {
+  //       path: '/ruleSet/edit',
+  //       component: './ruleSet/rule/RuleEdit',
+  //     },
+  //   ],
+  // },
+
   {
     path: '/',
     redirect: '/welcome',

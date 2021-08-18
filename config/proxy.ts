@@ -10,7 +10,7 @@ export default {
   dev: {
     '/apc': {
       // target: 'https://preview.pro.ant.design',
-      target: 'http://39.101.197.197:8003',
+      target: 'http://39.101.197.197:8003/',
       changeOrigin: true,
       // pathRewrite: { '^/apc': '/api' },
     },
